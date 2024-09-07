@@ -116,15 +116,7 @@ def app():
             st.write(response)
             response_dict = json.dumps(response)
             
-            # Unpack the JSON response using spread operator
-            #name = response.get('Name')
-            #phone_number = response_dict.get('Phone Number')
-            #email_id = response_dict.get('Email ID')
-            #job_titles = response_dict.get('Job Titles')
-            #skills = response_dict.get('Skills')
-            #current_company = response_dict.get('Current Company')
-            #location = response_dict.get('Location')
-            #st.write(name)
+            
         else:
             st.write("Please upload the resume")
         save_to_csv(response_dict, filename="resume_output.csv")

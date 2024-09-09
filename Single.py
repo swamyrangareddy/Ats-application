@@ -115,8 +115,8 @@ def app():
             response = response.replace('\n', ' ')
             st.write(response)
             response_dict = json.dumps(response)
-            
+            save_to_csv(response_dict, filename="resume_output.csv")
             
         else:
             st.write("Please upload the resume")
-        save_to_csv(response_dict, filename="resume_output.csv")
+        

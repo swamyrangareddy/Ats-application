@@ -16,17 +16,20 @@ class MultiApp:
             "function" : function
         })
     def run():
-        # Radio button
-        #app = st.radio(
-        #label="Select",
-        #options=["Folder", "Single"])
-
+         # Radio button selection
         with st.sidebar:
-            app = option_menu(
-                menu_title ="Select",
-                options =["Folder", "Single"],
-                icons=["folder","file-earmark-arrow-down"],
-                default_index=0,)
+            app = st.radio(
+            label="Select",
+            options=["Folder", "Single"],
+            
+        )
+
+       # with st.sidebar:
+       #     app = option_menu(
+       #         menu_title ="Select",
+       #         options =["Folder", "Single"],
+       #         icons=["folder","file-earmark-arrow-down"],
+       #         default_index=0,)
 
             #if app == "Single":
             #   Single.app()

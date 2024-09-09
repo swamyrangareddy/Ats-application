@@ -30,9 +30,7 @@ class MultiApp:
        #         options =["Folder", "Single"],
        #         icons=["folder","file-earmark-arrow-down"],
        #         default_index=0,)
-
-            #if app == "Single":
-            #   Single.app()
+        
         if app == "Single":
             Single.app()
         if app=="Folder":

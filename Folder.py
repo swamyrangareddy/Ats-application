@@ -41,9 +41,6 @@ def app():
     def input_docx_text(uploaded_file):
         if uploaded_file is not None:
             text = docx2txt.process(uploaded_file)
-            #text = ""
-            #for para in doc.paragraphs:
-            #    text += para.text
             return text
         else:
             raise FileNotFoundError("No file uploaded")
@@ -77,7 +74,6 @@ def app():
     data = []
 
     # Streamlit app
-    #st.radio("Select on one" ,["upload file","path"],index=0)
     st.title("Smart ATS")
     folder_path = st.text_input("Enter the folder path containing resumes")
 

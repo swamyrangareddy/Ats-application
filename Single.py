@@ -104,9 +104,27 @@ def app():
     elif submit3:
         if uploaded_file is not None:
             if uploaded_file.name.endswith('.pdf'):
+                 # Simulate processing with progress bar
+                text = input_pdf_text(uploaded_file)
+                progress_bar = st.progress(0)
+                progress_text = st.empty()
+                
+                for percent_complete in range(100):
+                    time.sleep(0.05)  # Simulate processing time
+                    progress_bar.progress(percent_complete + 1)
+                    progress_text.text(f"Processing {uploaded_file.name}: {percent_complete + 1}% completed")
                 pdf_content = input_pdf_text(uploaded_file)
                 response = get_gemini_response(input_prompt3, [pdf_content],input_text)
             elif uploaded_file.name.endswith('.docx'):
+                # Simulate processing with progress bar
+                text = input_doc_text(uploaded_file)
+                progress_bar = st.progress(0)
+                progress_text = st.empty()
+                
+                for percent_complete in range(100):
+                    time.sleep(0.05)  # Simulate processing time
+                    progress_bar.progress(percent_complete + 1)
+                    progress_text.text(f"Processing {uploaded_file.name}: {percent_complete + 1}% completed")
                 doc_content = input_doc_text(uploaded_file)
                 response = get_gemini_response(input_prompt3, [doc_content],input_text)
                 st.subheader("The Response is:")

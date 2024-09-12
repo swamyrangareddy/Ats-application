@@ -14,6 +14,7 @@ load_dotenv()  # Load all environment variables
 def app():
     
     genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+    genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))  # Configure the Google API key
 
     # Folder path
     folder_path = "D:/Resumes"
@@ -109,13 +110,20 @@ def app():
                         response = response.replace('\n', ' ')
 
                         # Use regex to extract each field
+                        # Search for the name in the response and assign it to the variable 'name'
                         name = re.search(r"Name:\s*(.*?),", response).group(1) if re.search(r"Name:\s*(.*?),", response) else 'Null'
+                        # Search for the phone number in the response and assign it to the variable 'phone'
                         phone = re.search(r"Phone Number:\s*(.*?),", response).group(1) if re.search(r"Phone Number:\s*(.*?),", response) else 'Null'
+                        # Search for the email in the response and assign it to the variable 'email'
                         email = re.search(r"Email ID:\s*(.*?),", response).group(1) if re.search(r"Email ID:\s*(.*?),", response) else 'Null'
+                        # Search for the job title in the response and assign it to the variable 'job_title'
                         job_title = re.search(r"Job Title:\s*(.*?),", response).group(1) if re.search(r"Job Title:\s*(.*?),", response) else 'Null'
+                        # Search for the current company in the response and assign it to the variable 'current_company'
                         current_company = re.search(r"Current Company:\s*(.*?),", response).group(1) if re.search(r"Current Company:\s*(.*?),", response) else 'Null'
+                        # Search for the skills in the response and assign it to the variable 'skills'
                         skills_match = re.search(r"Skills:\s*\[(.*?)\]", response)
                         skills = skills_match.group(1).replace('\\"', '') if skills_match else 'Null'
+                        # Search for the location in the response and assign it to the variable 'location'
                         location = re.search(r"Location:\s*(.*?)(,|$)", response).group(1) if re.search(r"Location:\s*(.*?)(,|$)", response) else 'Null'
 
                         # Append the extracted data to the data list
@@ -160,3 +168,4 @@ def app():
 # Run the app
 if __name__ == "__main__":
     app()
+
